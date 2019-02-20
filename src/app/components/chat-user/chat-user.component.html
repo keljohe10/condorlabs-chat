@@ -1,0 +1,25 @@
+<div>
+    <div class="app-userTitle text-left p-1">
+        <div *ngFor="let item of user" class="app-usercon">
+            <img width="47" height="47" class="d-inline-block align-top img-fluid rounded-circle" [src]="item.img"><span class="app-usernom p-2">{{correo}} </span>
+        </div>
+    </div>
+
+    <div class="app-mensajes animated fadeIn" id="app-mensajes">
+
+
+        <div *ngFor="let chat of chatprue" [ngClass]="{'text-left': _loginServices.user.name != chat.nombre}">
+            <div *ngIf="chat.destinatario == correo || chat.nombre == correo">
+                <span style="color:white;" class="badge badge-pill" [ngClass]="{'badge-primary': _loginServices.user.name == chat.nombre, 'badge-warning': _loginServices.user.name != chat.nombre}">{{chat.nombre}}</span>
+                <p>{{chat.mensajes}}</p>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="app-search2">
+        <div class="p-2">
+            <input type="text" name="mensaje" [(ngModel)]="mensaje" placeholder="Escribe un mensaje" (keyup.enter)="enviarmensaje()" class="form-control app-input">
+        </div>
+    </div>
+</div>

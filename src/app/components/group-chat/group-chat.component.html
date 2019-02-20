@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-12">
+        <div class="col-12  app-userTitle">
+            <a class="navbar-brand m-2">
+                <img [src]="_loginServices.user.img" width="30" height="30" class="d-inline-block align-top rounded-circle"> <span class="pl-2 app-conversation">{{_loginServices.user.name}}</span>
+            </a>
+        </div>
+
+        <div class="app-search">
+            <div class="p-2">
+                <input #input type="text" class="form-control app-input" placeholder="Search..." (keyup)="onChange($event, input.value)">
+            </div>
+        </div>
+
+
+        <div *ngIf="flag" class="animated fadeIn">
+            <div *ngFor="let user of users" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a routerLinkActive="active" [routerLink]="['/chat', user.name]" *ngIf="userLogin != user.email" class="nav-link app-userList" data-toggle="pill" role="tab" aria-controls="v-pills-home" aria-selected="true">{{user.name}}</a>
+            </div>
+        </div>
+        <div *ngIf="!flag" class="animated fadeIn">
+            <div *ngFor="let user of searchUsers" class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a routerLinkActive="active" [routerLink]="['/chat', user.name]" *ngIf="userLogin != user.email" class="nav-link app-userList" data-toggle="pill" role="tab" aria-controls="v-pills-home" aria-selected="true">{{user.name}}</a>
+            </div>
+        </div>
+        <div *ngIf="alert" class="alert alert-warning animated fadeIn" role="alert">
+            there aren't users
+        </div>
+    </div>
+</div>

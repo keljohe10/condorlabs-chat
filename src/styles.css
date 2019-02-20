@@ -1,1 +1,149 @@
 /* You can add global styles to this file, and also import other style files */
+
+.puntero {
+    cursor: pointer;
+}
+
+.chat-window {
+    padding: 10px;
+    width: 90%;
+    height: 400px;
+    overflow: hidden;
+    border: 1px solid #4080FF;
+    border-radius: 20px;
+}
+
+.app-mensajes {
+    overflow-y: scroll;
+    height: 390px;
+    /* background-image: url('./assets/img/display.jpg');*/
+    background-color: rgba(238, 238, 238, 0.6);
+    padding: 5px;
+}
+
+
+/* Animaciones */
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.fast {
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+.app-banner {
+    background-color: rgba(3, 155, 229, 1);
+}
+
+.app-tittle {
+    font-size: 2em;
+    color: white;
+}
+
+.app-position {
+    margin-top: 20px;
+    margin-left: -20px;
+}
+
+.app-logout {
+    padding-left: 25px;
+    padding-right: 25px;
+    font-weight: 750;
+}
+
+.app-logout:hover {
+    color: white!important;
+}
+
+.app-user {
+    border-right: 1px solid #e0e0e0;
+    padding: 0 0 !important;
+}
+
+.app-userTitle {
+    background-color: #eeeeee;
+}
+
+.app-conversation {
+    font-size: 15px;
+}
+
+.app-search {
+    background-color: rgba(238, 238, 238, 0.37);
+}
+
+.app-search2 {
+    background-color: rgba(238, 238, 238, 1);
+}
+
+.app-input {
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+}
+
+.app-userList {
+    border-bottom: 1px solid rgba(128, 128, 128, 0.37);
+    padding-top: 15px!important;
+    padding-bottom: 15px!important;
+}
+
+.app-usercon {
+    position: relative;
+}
+
+.app-usernom {
+    position: absolute;
+    bottom: 5px;
+}
+
+.app-router {
+    margin: 0 0!important;
+    padding: 0 0!important;
+}
+
+.app-navigate {
+    padding-left: 520px;
+}
+
+.app-navigate>li {
+    color: rgba(3, 155, 229, 1);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 1.1em;
+}
+
+.app-navigate>li:hover {
+    border-bottom: 2px solid #f6820d;
+}
+
+.app-active {
+    border-bottom: 2px solid rgba(3, 155, 229, 1);
+}
+
+.app-background {
+    text-align: center!important;
+    background-color: rgba(0, 0, 0, 0.035);
+}
