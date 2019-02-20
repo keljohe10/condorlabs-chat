@@ -16,6 +16,7 @@ import { ChatComponent } from './components/chat/chat.component';
 import { ChatUserComponent } from './components/chat-user/chat-user.component';
 import { AppRoutingModule } from './app.routes';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ImagePipe } from './pipe/image.pipe';
 
 
 
@@ -27,7 +28,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     GroupChatComponent,
     ChatComponent,
     ChatUserComponent,
-    ProfileComponent
+    ProfileComponent,
+    ImagePipe
   ],
   imports: [
     BrowserModule,

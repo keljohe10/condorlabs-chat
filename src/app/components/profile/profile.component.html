@@ -1,8 +1,15 @@
 <div class="row">
     <div class="col-12 text-center anitamed fadeIn">
-        <img [src]="_loginServices.user.img" class="rounded-circle img-fluid" width="300" height="300">
+
+        <img *ngIf="!imgTemp" [src]="imgUrl | image" class="rounded-circle img-fluid" width="300" height="300">
+        <img *ngIf="imgTemp" [src]="imgTemp" class="rounded-circle img-fluid" width="300" height="300">
+
+
         <hr>
         <h5>{{_loginServices.user.name}}</h5>
         <h6>{{_loginServices.user.email}}</h6>
+        <br>
+        <input #searchInput type="file" class="form-control" (change)="upLoadFile( $event.target.files[0] )">
+        <button class="btn btn-outline-success" (click)="changeImg()">Actualizar imagen</button>
     </div>
 </div>

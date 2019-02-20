@@ -1,3 +1,4 @@
+import { ProfileService } from './providers/profile.service';
 import { LoginService } from './providers/login.service';
 import { Observable } from 'rxjs/internal/Rx';
 import { Component } from '@angular/core';
