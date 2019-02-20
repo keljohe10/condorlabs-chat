@@ -62,11 +62,5 @@ public users: any[] = [];
     return this.itemsCollectionChat.add(messages);
 
   }
-  showPhoto(user) {
-      this.userCollection = this.afs.collection<any>('users', ref => ref.where('name', '==', user));
-      return this.userCollection.valueChanges()
-                        .pipe(map( (data: any) => {
-                          this.users = data;
-                        }));
-    }
+  
 }

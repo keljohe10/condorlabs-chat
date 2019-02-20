@@ -1,3 +1,4 @@
+import { ProfileService } from '../../providers/profile.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../providers/login.service';
@@ -17,14 +18,15 @@ elemento: any;
 chats: any[] = [];
 chatprue: Mensaje[] = [];
 user: any []  = [];
+imgUrl: string;
 
-  constructor(private _activatedRoute: ActivatedRoute,  public _cs: ChatgroupService, private _loginServices: LoginService) {
+  constructor(private _activatedRoute: ActivatedRoute,
+              public _cs: ChatgroupService,
+              private _loginServices: LoginService,
+              private _profile: ProfileService) {
 
     this._activatedRoute.params.subscribe(params => {
                   this.correo = params['id'];
-                  this._cs.showPhoto(this.correo).subscribe( () => {
-                          this.user = this._cs.users;
-                    });
                 });
                 this._cs.showMessages()
                               .subscribe( () => {

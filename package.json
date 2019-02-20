@@ -26,6 +26,7 @@
     "firesql": "^1.0.2",
     "rxfire": "^3.3.3",
     "rxjs": "^6.3.3",
+    "sweetalert": "^2.1.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

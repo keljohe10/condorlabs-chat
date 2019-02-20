@@ -1,8 +1,6 @@
 <div>
-    <div class="app-userTitle text-left p-1">
-        <div *ngFor="let item of user" class="app-usercon">
-            <img width="47" height="47" class="d-inline-block align-top img-fluid rounded-circle" [src]="item.img"><span class="app-usernom p-2">{{correo}} </span>
-        </div>
+    <div class="app-userTitle text-left app-padding">
+        <span><i class="far fa-comment-alt" style="color: #f6820d;"></i> {{correo}}</span>
     </div>
 
     <div class="app-mensajes animated fadeIn" id="app-mensajes">
@@ -19,7 +17,7 @@
     </div>
     <div class="app-search2">
         <div class="p-2">
-            <input type="text" name="mensaje" [(ngModel)]="mensaje" placeholder="Escribe un mensaje" (keyup.enter)="enviarmensaje()" class="form-control app-input">
+            <input type="text" name="mensaje" [(ngModel)]="mensaje" placeholder="Type a message" (keyup.enter)="enviarmensaje()" class="form-control app-input">
         </div>
     </div>
 </div>

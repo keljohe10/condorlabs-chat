@@ -13,8 +13,7 @@ export class AppComponent {
   title = 'ChatFire';
   navType = 'list';
 
-  constructor(public _loginServices: LoginService) {
-
+  constructor(public _loginServices: LoginService, public _profile: ProfileService) {
   }
 
   nav(type) {

@@ -1,5 +1,6 @@
 import { LoginService } from '../../providers/login.service';
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../../providers/profile.service';
 
 @Component({
   selector: 'app-group-chat',
@@ -13,12 +14,20 @@ searchUsers: any = [];
 userLogin: string;
 flag = true;
 alert = false;
+imgUrl: any;
 
-  constructor(public _loginServices: LoginService) {
+  constructor(public _loginServices: LoginService, private _profile: ProfileService) {
     this.loadUserLogin();
   }
   ngOnInit() {
     this.loadUser();
+      this._profile.showImg().subscribe( () => {
+          if (this._profile.img.length <= 0) {
+              return;
+          } else {
+              this.imgUrl = this._profile.img[0].url;
+          }
+      });
   }
   loadUserLogin() {
     if (localStorage.getItem('user')) {

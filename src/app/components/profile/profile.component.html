@@ -1,15 +1,29 @@
-<div class="row">
-    <div class="col-12 text-center anitamed fadeIn">
+<div class="row mt-4">
+    <div class="col-12 anitamed fadeIn text-center">
 
-        <img *ngIf="!imgTemp" [src]="imgUrl | image" class="rounded-circle img-fluid" width="300" height="300">
-        <img *ngIf="imgTemp" [src]="imgTemp" class="rounded-circle img-fluid" width="300" height="300">
+        <div class="text-center">
+            <img *ngIf="!imgTemp" [src]="imgUrl | image" class="rounded-circle img-fluid text-center app-border">
+            <img *ngIf="imgTemp" [src]="imgTemp" class="rounded-circle img-fluid text-center app-border">
+            <div class="row mt-3">
+                <div class="col-6 offset-5">
+                    <div class="progress app-progress" *ngIf="load && (_profile.progress < 99)">
+                        <div class="progress-bar text-center" role="progressbar" [ngStyle]="{'width': _profile.progress + '%'}"></div>
+                    </div>
+
+                </div>
+            </div>
 
 
-        <hr>
-        <h5>{{_loginServices.user.name}}</h5>
-        <h6>{{_loginServices.user.email}}</h6>
-        <br>
-        <input #searchInput type="file" class="form-control" (change)="upLoadFile( $event.target.files[0] )">
-        <button class="btn btn-outline-success" (click)="changeImg()">Actualizar imagen</button>
+            <h5 class="card-title mt-3 colorPrimary"><i class="far fa-user colorSec"></i> User</h5>
+            <hr style="background-color: rgba(3, 155, 229, 1); width: 80%;">
+            <h6 class="colorPrimary">{{_loginServices.user.name}}</h6>
+            <h6 class="colorPrimary"><small>{{_loginServices.user.email}}</small></h6>
+            <div class="row">
+                <div class="col-4 offset-4">
+                    <input #searchInput type="file" class="form-control m-3" (change)="upLoadFile( $event.target.files[0] )">
+                    <button [disabled]="!fileLoad" class="btn btn-outline-primary" (click)="changeImg()">Update image</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

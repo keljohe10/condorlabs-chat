@@ -4,6 +4,14 @@
     cursor: pointer;
 }
 
+.colorPrimary {
+    color: rgba(3, 155, 229, 1);
+}
+
+.colorSec {
+    color: #f6820d;
+}
+
 .chat-window {
     padding: 10px;
     width: 90%;
@@ -84,8 +92,16 @@
     background-color: #eeeeee;
 }
 
+.app-padding {
+    padding-top: 19px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    color: rgba(3, 155, 229, 1);
+}
+
 .app-conversation {
     font-size: 15px;
+    color: rgba(3, 155, 229, 1);
 }
 
 .app-search {
@@ -146,4 +162,13 @@
 .app-background {
     text-align: center!important;
     background-color: rgba(0, 0, 0, 0.035);
+}
+
+.app-border {
+    box-shadow: 0 0 10px 1px rgba(3, 155, 229, 1);
+    width: 250px;
+}
+
+.app-progress {
+    width: 200px;
 }
