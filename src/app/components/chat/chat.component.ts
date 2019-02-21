@@ -10,30 +10,30 @@ import { LoginService } from '../../providers/login.service';
 })
 export class ChatComponent implements OnInit {
 
-  mensaje: string;
-  elemento: any;
+  message: string;
+  element: any;
   constructor( public _cs: ChatgroupService, private _loginServices: LoginService) {
-    this._cs.CargarMensajes()
+    this._cs.loadMessages()
         .subscribe( () => {
           setTimeout( () => {
-            this.elemento.scrollTop = this.elemento.scrollHeight;
+            this.element.scrollTop = this.element.scrollHeight;
           }, 20);
         });
   }
 
   ngOnInit() {
 
-    this.elemento = document.getElementById('app-mensajes');
+    this.element = document.getElementById('app-message');
   }
 
-  enviarmensaje() {
-    if (this.mensaje.length === 0) {
+  sendMessage() {
+    if (this.message.length === 0) {
       return;
     }
 
-    this._cs.AgregarMensaje(this.mensaje)
-            .then( () => this.mensaje = '')
-            .catch( (err) => console.error('Error enviando', err));
+    this._cs.addMessages(this.message)
+            .then( () => this.message = '')
+            .catch( (err) => console.error('Error', err));
   }
 
 }

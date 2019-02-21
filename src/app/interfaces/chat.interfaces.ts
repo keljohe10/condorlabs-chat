@@ -1,7 +1,7 @@
-export interface Mensaje {
-  nombre: string;
-  mensajes: string;
-  fecha?: number;
+export interface Message {
+  name: string;
+  message: string;
+  date?: number;
   uid?: string;
-  destinatario?: string;
+  addressee?: string;
 }

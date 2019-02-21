@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-.puntero {
+.pointer {
     cursor: pointer;
 }
 
@@ -12,7 +12,7 @@
     color: #f6820d;
 }
 
-.app-mensajes {
+.app-message {
     overflow-y: scroll;
     height: 390px;
     /* background-image: url('./assets/img/display.jpg');*/

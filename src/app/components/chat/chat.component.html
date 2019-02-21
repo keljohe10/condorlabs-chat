@@ -2,18 +2,18 @@
     <div class="app-userTitle text-left app-padding">
         <h2><i class="fas fa-users" style="color: #f6820d;"></i> Chat</h2>
     </div>
-    <div class="app-mensajes" id="app-mensajes">
+    <div class="app-message" id="app-message">
 
         <div class="pl-3 pr-3" *ngFor="let chat of _cs.chats" [ngClass]="{'text-right': _loginServices.user.uid == chat.uid}">
-            <span style="color:white;" class="badge badge-pill" [ngClass]="{'badge-primary': _loginServices.user.uid == chat.uid, 'badge-warning': _loginServices.user.uid != chat.uid}">{{chat.nombre}}</span>
-            <p>{{chat.mensajes}}</p>
+            <span style="color:white;" class="badge badge-pill" [ngClass]="{'badge-primary': _loginServices.user.uid == chat.uid, 'badge-warning': _loginServices.user.uid != chat.uid}">{{chat.name}}</span>
+            <p>{{chat.message}}</p>
         </div>
 
     </div>
 
     <div class="app-search2">
         <div class="p-2">
-            <input type="text" name="mensaje" [(ngModel)]="mensaje" placeholder="Type a message" (keyup.enter)="enviarmensaje()" class="form-control app-input">
+            <input type="text" name="message" [(ngModel)]="message" placeholder="Type a message" (keyup.enter)="sendMessage()" class="form-control app-input">
         </div>
     </div>
 </div>

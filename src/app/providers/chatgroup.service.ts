@@ -2,7 +2,7 @@ import { LoginService } from './login.service';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { Mensaje } from '../interfaces/chat.interfaces';
+import { Message } from '../interfaces/chat.interfaces';
 import { map } from 'rxjs/operators';
 
 
@@ -14,53 +14,51 @@ export class ChatgroupService {
 private itemsCollection: AngularFirestoreCollection<any>;
 private itemsCollectionChat: AngularFirestoreCollection<any>;
 private userCollection: AngularFirestoreCollection<any>;
-public chats: Mensaje[] = [];
-public chatUser: Mensaje[] = [];
-public usuario: any = {};
-public users: any[] = [];
+public chats: Message[] = [];
+public chatUser: Message[] = [];
 
   constructor(private afs: AngularFirestore, private _loginServices: LoginService) { }
 
-  CargarMensajes() {
-    this.itemsCollection = this.afs.collection<Mensaje>('chats', ref => ref.orderBy('fecha', 'asc'));
+  loadMessages() {
+    this.itemsCollection = this.afs.collection<Message>('chats', ref => ref.orderBy('date', 'asc'));
     return this.itemsCollection.valueChanges()
-                      .pipe(map( (data: Mensaje[]) => {
+                      .pipe(map( (data: Message[]) => {
                         this.chats = data;
                       }));
   }
 
-  AgregarMensaje(texto: string) {
-      const mensajes: Mensaje = {
-        nombre: this._loginServices.user.name,
-        mensajes: texto,
-        fecha: new Date().getTime(),
+  addMessages(texto: string) {
+      const messages: Message = {
+        name: this._loginServices.user.name,
+        message: texto,
+        date: new Date().getTime(),
         uid: this._loginServices.user.uid
     };
-    return this.itemsCollection.add(mensajes);
+    return this.itemsCollection.add(messages);
   }
    showMessages() {
-     this.itemsCollectionChat = this.afs.collection<Mensaje>('chatUsers', ref => ref.orderBy('fecha', 'asc'));
+     this.itemsCollectionChat = this.afs.collection<Message>('chatUsers', ref => ref.orderBy('date', 'asc'));
     return this.itemsCollectionChat.valueChanges()
-                      .pipe(map( (data: Mensaje[]) => {
+                      .pipe(map( (data: Message[]) => {
                         this.chatUser = data;
                       }));
   }
 
   addMessageUser(text, addressee) {
-    let fechas = new Date().getTime();
-    let fecha2 = fechas.toString();
+    let date = new Date().getTime();
+    let date2 = date.toString();
 
     // Add a new document in collection "users"
-     const messages: Mensaje = {
-        nombre: this._loginServices.user.name,
-        mensajes: text,
-        fecha: new Date().getTime(),
-        uid: fecha2,
-        destinatario: addressee
+     const messages: Message = {
+        name: this._loginServices.user.name,
+        message: text,
+        date: new Date().getTime(),
+        uid: date2,
+        addressee: addressee
 
     };
     return this.itemsCollectionChat.add(messages);
 
   }
-  
+
 }

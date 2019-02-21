@@ -1,15 +1,15 @@
 <div>
     <div class="app-userTitle text-left app-padding">
-        <span><i class="far fa-comment-alt" style="color: #f6820d;"></i> {{correo}}</span>
+        <span><i class="far fa-comment-alt" style="color: #f6820d;"></i> {{user}}</span>
     </div>
 
-    <div class="app-mensajes animated fadeIn" id="app-mensajes">
+    <div class="app-message animated fadeIn" id="app-message">
 
 
-        <div *ngFor="let chat of chatprue" [ngClass]="{'text-left': _loginServices.user.name != chat.nombre}">
-            <div *ngIf="chat.destinatario == correo || chat.nombre == correo">
-                <span style="color:white;" class="badge badge-pill" [ngClass]="{'badge-primary': _loginServices.user.name == chat.nombre, 'badge-warning': _loginServices.user.name != chat.nombre}">{{chat.nombre}}</span>
-                <p>{{chat.mensajes}}</p>
+        <div *ngFor="let chat of chats" [ngClass]="{'text-left': _loginServices.user.name != chat.name}">
+            <div *ngIf="chat.addressee == user || chat.name == user">
+                <span style="color:white;" class="badge badge-pill" [ngClass]="{'badge-primary': _loginServices.user.name == chat.name, 'badge-warning': _loginServices.user.name != chat.name}">{{chat.name}}</span>
+                <p>{{chat.message}}</p>
             </div>
 
         </div>
@@ -17,7 +17,7 @@
     </div>
     <div class="app-search2">
         <div class="p-2">
-            <input type="text" name="mensaje" [(ngModel)]="mensaje" placeholder="Type a message" (keyup.enter)="enviarmensaje()" class="form-control app-input">
+            <input type="text" name="message" [(ngModel)]="message" placeholder="Type a message" (keyup.enter)="sendMessage()" class="form-control app-input">
         </div>
     </div>
 </div>

@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../providers/login.service';
 import { ChatgroupService } from '../../providers/chatgroup.service';
-import { Mensaje } from '../../interfaces/chat.interfaces';
+import { Message } from '../../interfaces/chat.interfaces';
 
 @Component({
   selector: 'app-chat-user',
@@ -12,12 +12,10 @@ import { Mensaje } from '../../interfaces/chat.interfaces';
 })
 export class ChatUserComponent implements OnInit {
 
-correo: string;
-mensaje: string;
-elemento: any;
-chats: any[] = [];
-chatprue: Mensaje[] = [];
-user: any []  = [];
+user: string;
+message: string;
+element: any;
+chats: Message[] = [];
 imgUrl: string;
 
   constructor(private _activatedRoute: ActivatedRoute,
@@ -26,19 +24,19 @@ imgUrl: string;
               private _profile: ProfileService) {
 
     this._activatedRoute.params.subscribe(params => {
-                  this.correo = params['id'];
+                  this.user = params['id'];
                 });
                 this._cs.showMessages()
                               .subscribe( () => {
-                                this.chatprue = [];
+                                this.chats = [];
                                  for (const value of this._cs.chatUser) {
                                      // tslint:disable-next-line:max-line-length
-                                     if (value.nombre.indexOf(this._loginServices.user.name) >= 0 || value.destinatario.indexOf(this._loginServices.user.name) >= 0) {
-                                         this.chatprue.push(value);
+                                     if (value.name.indexOf(this._loginServices.user.name) >= 0 || value.addressee.indexOf(this._loginServices.user.name) >= 0) {
+                                         this.chats.push(value);
                                     }
                                  }
                                       setTimeout( () => {
-                                         this.elemento.scrollTop = this.elemento.scrollHeight;
+                                         this.element.scrollTop = this.element.scrollHeight;
                                       }, 20);
                               });
 
@@ -46,18 +44,18 @@ imgUrl: string;
 
   ngOnInit() {
 
-    this.elemento = document.getElementById('app-mensajes');
+    this.element = document.getElementById('app-message');
 
   }
-  enviarmensaje() {
+  sendMessage() {
 
-    if (this.mensaje.length === 0) {
+    if (this.message.length === 0) {
       return;
     }
 
-    this._cs.addMessageUser(this.mensaje, this.correo)
-          .then( () => this.mensaje = '')
-            .catch( (err) => console.error('Error enviando', err));
+    this._cs.addMessageUser(this.message, this.user)
+          .then( () => this.message = '')
+            .catch( (err) => console.error('Error', err));
   }
 
 
