@@ -12,15 +12,6 @@
     color: #f6820d;
 }
 
-.chat-window {
-    padding: 10px;
-    width: 90%;
-    height: 400px;
-    overflow: hidden;
-    border: 1px solid #4080FF;
-    border-radius: 20px;
-}
-
 .app-mensajes {
     overflow-y: scroll;
     height: 390px;

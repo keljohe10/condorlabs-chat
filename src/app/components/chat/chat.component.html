@@ -1,16 +1,19 @@
-<h1>Chat</h1>
+<div>
+    <div class="app-userTitle text-left app-padding">
+        <h2><i class="fas fa-users" style="color: #f6820d;"></i> Chat</h2>
+    </div>
+    <div class="app-mensajes" id="app-mensajes">
 
-<hr>
-<div class="app-mensajes" id="app-mensajes">
+        <div class="pl-3 pr-3" *ngFor="let chat of _cs.chats" [ngClass]="{'text-right': _loginServices.user.uid == chat.uid}">
+            <span style="color:white;" class="badge badge-pill" [ngClass]="{'badge-primary': _loginServices.user.uid == chat.uid, 'badge-warning': _loginServices.user.uid != chat.uid}">{{chat.nombre}}</span>
+            <p>{{chat.mensajes}}</p>
+        </div>
 
-    <div *ngFor="let chat of _cs.chats" [ngClass]="{'text-right': _loginServices.user.uid == chat.uid}">
-        <span style="color:white;" class="badge badge-pill" [ngClass]="{'badge-primary': _loginServices.user.uid == chat.uid, 'badge-warning': _loginServices.user.uid != chat.uid}">{{chat.nombre}}</span>
-        <p>{{chat.mensajes}}</p>
     </div>
 
-</div>
-
-
-<div class="input-group input-group-sm">
-    <input type="text" name="mensaje" [(ngModel)]="mensaje" placeholder="Escribe un mensaje" (keyup.enter)="enviarmensaje()" class="form-control rounded">
+    <div class="app-search2">
+        <div class="p-2">
+            <input type="text" name="mensaje" [(ngModel)]="mensaje" placeholder="Type a message" (keyup.enter)="enviarmensaje()" class="form-control app-input">
+        </div>
+    </div>
 </div>

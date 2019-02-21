@@ -53,9 +53,12 @@
             </div>
 
         </div>
-        <div class="chat-window animated fadeIn slow " *ngIf="navType=='group' ">
-            <app-chat></app-chat>
+        <div class="row">
+            <div class="col-12 animated fadeIn slow app-router" *ngIf="navType=='group' ">
+                <app-chat></app-chat>
+            </div>
         </div>
+
         <div class="animated fadeIn slow " *ngIf="navType=='profile' ">
             <app-profile></app-profile>
         </div>
