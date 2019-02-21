@@ -2,6 +2,42 @@ import { LoginService } from '../../providers/login.service';
 import { Component, OnInit } from '@angular/core';
 import { ProfileService } from '../../providers/profile.service';
 
+/*
+Author: Kelvin José Hernandez Cabrera
+@Desc: component for showing users list
+--------------------------------------
+	Variables:
+	@Name:users
+	@Desc: All users of the database.
+
+  @Name:searchUsers
+	@Desc: user of a search
+
+  @Name:userLogin
+	@Desc: user who logged in
+
+  @Name:flag
+	@Desc: Flag to control search
+
+  @Name:alert
+	@Desc: alert to indicate that no users were found
+
+  @Name:imgUrl
+	@Desc: user image
+
+--------------------------------------
+	Function:
+
+  @Name: loadUserLogin
+	@Desc: load the user who is logged in
+
+  @Name: loadUser
+	@Desc: load users list
+
+  @Name: onChange
+	@Desc: shows result of a search
+*/
+
 @Component({
   selector: 'app-group-chat',
   templateUrl: './group-chat.component.html',
@@ -21,6 +57,7 @@ imgUrl: any;
   }
   ngOnInit() {
     this.loadUser();
+    // subscription to show user image
       this._profile.showImg().subscribe( () => {
           if (this._profile.img.length <= 0) {
               return;

@@ -4,6 +4,37 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import * as firebase from 'firebase';
 import { map } from 'rxjs/internal/operators';
 
+
+/*
+Author: Kelvin José Hernandez Cabrera
+@Desc: profile service
+--------------------------------------
+	Variables:
+	@Name: PATH
+	@Desc: path in firebase storage
+
+  @Name:itemsCollection
+	@Desc: img collection in the firebase database
+
+  @Name:img
+	@Desc: data of the img collection
+
+  @Name:progress
+	@Desc: progress of img upload
+
+--------------------------------------
+	Function:
+
+  @Name: loadImg
+	@Desc: load data to the img collection and firebase storage
+
+  @Name: showImg
+	@Desc: get the image of the img collection
+
+
+*/
+
+
 @Injectable({
   providedIn: 'root'
 })

@@ -1,5 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+// pipe to control images
+
 @Pipe({
   name: 'image'
 })

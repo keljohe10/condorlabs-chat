@@ -5,6 +5,40 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase';
 
+/*
+Author: Kelvin José Hernandez Cabrera
+@Desc: Login provider
+--------------------------------------
+	Variables:
+	@Name: user
+	@Desc: user
+
+  @Name:token
+	@Desc: token
+
+  @Name:itemsCollection
+	@Desc: user collection in the firebase database
+
+--------------------------------------
+	Function:
+
+  @Name: login
+	@Desc: login
+
+  @Name: logout
+	@Desc: logout
+
+  @Name: saveUsers
+	@Desc: saves user in the database
+
+  @Name: loadUsers
+	@Desc: load users of the database
+
+  @Name: setStorage
+	@Desc: set user in storage
+*/
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -13,12 +47,12 @@ export class LoginService {
   public user: any = {};
   public token;
   private itemsCollection: AngularFirestoreCollection<any>;
-  private items: AngularFirestoreCollection<any>;
 
    constructor(private afs: AngularFirestore, public afAuth: AngularFireAuth) {
      this.saveUsers();
   }
   login() {
+    // This gives you a Google Access Token. You can use it to access the Google API.
     this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
   }
   logout() {
@@ -28,6 +62,7 @@ export class LoginService {
     this.user.img = '';
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    // Sign-out successful.
     this.afAuth.auth.signOut();
   }
   saveUsers() {
@@ -40,7 +75,7 @@ export class LoginService {
           this.user.uid = user.uid;
           this.user.img = user.photoURL;
 
-          this.guardaStorage( this.user.uid, this.user.email );
+          this.setStorage( this.user.uid, this.user.email );
 
           // Add a new document in collection "users"
           this.afs.collection('users').doc(this.user.uid).set({
@@ -66,7 +101,7 @@ export class LoginService {
                         return data;
                       }));
   }
-  guardaStorage(token: string, email: string) {
+  setStorage(token: string, email: string) {
      localStorage.setItem('token', token);
      localStorage.setItem('user', email);
      this.token = token;

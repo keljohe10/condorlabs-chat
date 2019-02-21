@@ -5,6 +5,30 @@ import { LoginService } from '../../providers/login.service';
 import { ChatgroupService } from '../../providers/chatgroup.service';
 import { Message } from '../../interfaces/chat.interfaces';
 
+/*
+Author: Kelvin José Hernandez Cabrera
+@Desc: Component for chat between users
+--------------------------------------
+	Variables:
+	@Name:message
+	@Desc: message sent through the group chat
+
+  @Name:element
+	@Desc: container of messages on the screen
+
+  @Name:user
+	@Desc: contact in a conversation
+
+  @Name:chats
+	@Desc: chat with a contact
+
+--------------------------------------
+	Function:
+
+  @Name: sendMessage
+	@Desc: send message by calling the message sending provider (_cs.addMessageUser)
+*/
+
 @Component({
   selector: 'app-chat-user',
   templateUrl: './chat-user.component.html',
@@ -16,13 +40,13 @@ user: string;
 message: string;
 element: any;
 chats: Message[] = [];
-imgUrl: string;
 
   constructor(private _activatedRoute: ActivatedRoute,
               public _cs: ChatgroupService,
               private _loginServices: LoginService,
               private _profile: ProfileService) {
 
+// subscription for getting user and show the conversation
     this._activatedRoute.params.subscribe(params => {
                   this.user = params['id'];
                 });

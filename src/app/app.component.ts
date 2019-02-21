@@ -16,6 +16,7 @@ export class AppComponent {
   constructor(public _loginServices: LoginService, public _profile: ProfileService) {
   }
 
+// navigation
   nav(type) {
     if (type === 'list') {
       this.navType = 'list';

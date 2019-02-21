@@ -3,6 +3,33 @@ import { LoginService } from '../../providers/login.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import swal from 'sweetalert';
 
+/*
+Author: Kelvin José Hernandez Cabrera
+@Desc: user profile component
+--------------------------------------
+	Variables:
+	@Name:fileLoad
+	@Desc: file entered in the input
+
+  @Name:load
+	@Desc: flag to know if there is an image in the input
+
+  @Name:imgUrl
+	@Desc: user image
+
+  @Name:imgTemp
+	@Desc: temporary image
+
+--------------------------------------
+	Function:
+
+  @Name: upLoadFile
+	@Desc: shows temporary image selected
+
+  @Name: changeImg
+	@Desc: update the profile image
+*/
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',

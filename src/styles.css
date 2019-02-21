@@ -15,13 +15,12 @@
 .app-message {
     overflow-y: scroll;
     height: 390px;
-    /* background-image: url('./assets/img/display.jpg');*/
     background-color: rgba(238, 238, 238, 0.6);
     padding: 5px;
 }
 
 
-/* Animaciones */
+/* Animated css */
 
 .animated {
     -webkit-animation-duration: 1s;
@@ -61,7 +60,7 @@
 
 .app-position {
     margin-top: 20px;
-    margin-left: -20px;
+    margin-left: -10px;
 }
 
 .app-logout {
